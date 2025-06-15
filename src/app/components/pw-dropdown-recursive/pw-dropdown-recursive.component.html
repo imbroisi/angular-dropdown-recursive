@@ -1,0 +1,13 @@
+<div class="container">
+  <span (click)="toggleDropdown()" class="title">
+    <span [class.rotated]="isOpen">{{'>'}}</span> {{ items.label }}
+  </span>
+  <div class="dropdown" *ngIf="isOpen">
+    <div class="dropdown-item" *ngFor="let option of items.options">
+      <span *ngIf="isString(option)">
+        <span class="hidden">{{'>'}}</span> {{ option }}
+      </span>
+      <pw-dropdown-recursive *ngIf="isDropdownItem(option)" [items]="option"></pw-dropdown-recursive>
+    </div>
+  </div>
+</div>

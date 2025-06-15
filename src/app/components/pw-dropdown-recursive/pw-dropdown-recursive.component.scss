@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+}
+
+.title {
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    transition: transform 0.1s ease;
+    
+    &.rotated {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .dropdown-item {
+    padding: 4px 16px;
+    cursor: default;
+
+    .hidden {
+      visibility: hidden;
+    }
+  }
+}
