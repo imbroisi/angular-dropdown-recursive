@@ -42,11 +42,11 @@ describe('PwDropdownComponent', () => {
 
   it('should handle nested options', () => {
     component.items = {
-      title: 'Parent',
+      label: 'Parent',
       options: [
         'Item 1',
         {
-          title: 'Nested',
+          label: 'Nested',
           options: ['Nested Item 1']
         }
       ]
