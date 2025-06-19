@@ -3,29 +3,43 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 /**
  * Example of the dropdown items
  * 
-  {
-    label: "Hello",
+ {
+    label: "<b>Example Menu</b>",
     options: [
-      'Option 1',
-      'Option 2',
       {
-        label: 'Option 3',
+        display: 'Item 1',
+        id: 'a'
+      },
+      {
+        display: 'Item 2',
+        id: 'b'
+      },
+      {
+        display: '<i>Item 3</i>',
+        id: 'c'
+      },
+      {
+        label: 'Submenu 1',
         options: [
-          'Option A',
-          'Option B',
+          {
+            display: 'x',
+            id: 'XXXX'
+          },
         ]
       }
     ]
-  };
-
+  }
+    
  */
 
 export interface Option {
-  item: string;
+  // display: it is possible to use HTML as string
+  display: string;
   id: string;
 }
 
 export interface DropdownItem {
+  // label: it is possible to use HTML as string
   label?: string;
   options?: (Option | DropdownItem)[]
 }
@@ -39,11 +53,12 @@ export class PwDropdownComponent {
   @Input() items: DropdownItem = {
     label: '',
     options: [{
-      item: 'Item default',
+      display: '',
       id: ''
     }]
   };
 
+  // returns the id of the option clicked
   @Output() onClickItem = new EventEmitter<string>();
   
   isOpen: boolean = false;
@@ -52,16 +67,12 @@ export class PwDropdownComponent {
     this.isOpen = !this.items.label;
   }
 
-  get formattedLabel(): string {
-    return this.items.label || '';
-  }
-
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
 
   isItem(value: any) {
-    return !!value.item && !!value.id;
+    return !!value.display && !!value.id;
   }
 
   isDropdown(value:any) {

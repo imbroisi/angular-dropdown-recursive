@@ -8,25 +8,25 @@ import { DropdownItem } from 'src/app/components/pw-dropdown-recursive/pw-dropdo
 })
 export class ExampleComponent {
   dropdownData: DropdownItem = {
-    label: "Example Menu",
+    label: "<b>Example Menu</b>",
     options: [
       {
-        item: 'Item 1',
+        display: 'Item 1',
         id: 'a'
       },
       {
-        item: 'Item 2',
+        display: 'Item 2',
         id: 'b'
       },
       {
-        item: 'Item 3',
+        display: '<i>Item 3</i>',
         id: 'c'
       },
       {
         label: 'Submenu 1',
         options: [
           {
-            item: 'x',
+            display: 'x',
             id: 'XXXX'
           },
         ]
@@ -42,33 +42,33 @@ export class ExampleComponent {
   //   label: "Example Menu",
   //   options: [
   //     {
-  //       item: 'Item 1',
+  //       display: 'Item 1',
   //       id: 'https://www.google.com'
   //     },
   //     {
-  //       item: 'Item 2',
+  //       display: 'Item 2',
   //       id: 'https://www.google.com'
   //     },
   //     {
   //       label: 'Submenu 1',
   //       options: [
   //         {
-  //           item: 'SubItem A',
+  //           display: 'SubItem A',
   //           id: 'https://www.google.com'
   //         },
   //         {
-  //           item: 'SubItem A',
+  //           display: 'SubItem A',
   //           id: 'https://www.google.com'
   //         },
   //         {
   //           label: 'Nested Menu',
   //           options: [
   //             {
-  //               item: 'SubItem x',
+  //               display: 'SubItem x',
   //               id: 'https://www.google.com'
   //             },
   //             {
-  //               item: 'SubItem y',
+  //               display: 'SubItem y',
   //               id: 'https://www.google.com'
   //             },
   //           ]

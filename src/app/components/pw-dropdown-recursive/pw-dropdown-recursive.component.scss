@@ -4,7 +4,7 @@
   align-items: flex-start;
   width: fit-content;
 
-  .title {
+  .label {
     cursor: pointer;
     span {
       display: inline-block;
@@ -33,13 +33,9 @@
       transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .dropdown-item {
+    .dropdown-display {
       padding: 4px 16px;
       cursor: pointer;
-
-      // .dropdown-item-label {
-      //   cursor: pointer;
-      // }
 
       .hidden {
         visibility: hidden;
