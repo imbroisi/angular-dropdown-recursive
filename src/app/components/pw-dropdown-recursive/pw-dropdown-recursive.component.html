@@ -1,13 +1,23 @@
 <div class="container">
-  <span (click)="toggleDropdown()" class="title">
+  <!-- label -->
+  <span *ngIf="!!items.label" (click)="toggleDropdown()" class="title">
     <span [class.rotated]="isOpen">{{'>'}}</span> {{ items.label }}
   </span>
-  <div class="dropdown" *ngIf="isOpen">
-    <div class="dropdown-item" *ngFor="let option of items.options">
-      <span *ngIf="isString(option)">
-        <span class="hidden">{{'>'}}</span> {{ option }}
+  <div class="dropdown" [class.open]="isOpen" [class.closed]="!isOpen">
+    <div class="dropdown-item"  [class.no-label]="!items.label" *ngFor="let option of items.options">
+
+      <!-- item -->
+      <span *ngIf="isItem(option)" class="dropdown-item-label">
+        <span role="button" (click)="onClickItem.emit(asOption(option).id)">
+          <span class="hidden">{{'>'}}</span> {{ asOption(option).item }}
+        </span>
       </span>
-      <pw-dropdown-recursive *ngIf="isDropdownItem(option)" [items]="option"></pw-dropdown-recursive>
+
+      <!-- dropdown -->
+      <pw-dropdown-recursive *ngIf="isDropdown(option)" [items]="asDropdownItem(option)"
+        (onClickItem)="onClickItem.emit($event)">
+      </pw-dropdown-recursive>
+
     </div>
   </div>
 </div>

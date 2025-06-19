@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Example of the dropdown items
@@ -20,9 +20,14 @@ import { Component, Input } from '@angular/core';
 
  */
 
-interface DropdownItem {
-  label: string;
-  options: (string | DropdownItem)[];
+export interface Option {
+  item: string;
+  id: string;
+}
+
+export interface DropdownItem {
+  label?: string;
+  options?: (Option | DropdownItem)[]
 }
 
 @Component({
@@ -33,19 +38,41 @@ interface DropdownItem {
 export class PwDropdownComponent {
   @Input() items: DropdownItem = {
     label: '',
-    options: []
+    options: [{
+      item: 'Item default',
+      id: ''
+    }]
   };
-  isOpen = false;
+
+  @Output() onClickItem = new EventEmitter<string>();
+  
+  isOpen: boolean = false;
+
+  ngOnInit() {
+    this.isOpen = !this.items.label;
+  }
+
+  get formattedLabel(): string {
+    return this.items.label || '';
+  }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
 
-  isString(value: string | DropdownItem) {
-    return typeof value === 'string';
+  isItem(value: any) {
+    return !!value.item && !!value.id;
   }
 
-  isDropdownItem(value: string | DropdownItem): value is DropdownItem {
-    return typeof value === 'object';
+  isDropdown(value:any) {
+    return !!value.options;
+  }
+
+  asOption(val: any): Option { 
+    return val; 
+  }
+
+  asDropdownItem(val: any): DropdownItem { 
+    return val; 
   }
 }

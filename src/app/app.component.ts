@@ -1,20 +1,9 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
-  template: `
-    <div class="app">
-      <h1>Password Dropdown Example</h1>
-      <pw-dropdown-recursive [items]="dropdownItems"></pw-dropdown-recursive>
-    </div>
-  `,
-  styles: [`
-    .app {
-      text-align: center;
-      padding: 20px;
-    }
-  `]
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
