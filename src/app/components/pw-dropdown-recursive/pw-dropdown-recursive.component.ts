@@ -33,13 +33,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
  */
 
 export interface Option {
-  // display: it is possible to use HTML as string
+  // display: it is valid to use HTML as string
   display: string;
   id: string;
 }
 
 export interface DropdownItem {
-  // label: it is possible to use HTML as string
+  // label: it is valid to use HTML as string
   label?: string;
   options?: (Option | DropdownItem)[]
 }
@@ -50,13 +50,7 @@ export interface DropdownItem {
   styleUrls: ['./pw-dropdown-recursive.component.scss']
 })
 export class PwDropdownComponent {
-  @Input() items: DropdownItem = {
-    label: '',
-    options: [{
-      display: '',
-      id: ''
-    }]
-  };
+  @Input() items: DropdownItem = {};
 
   // returns the id of the option clicked
   @Output() onClickItem = new EventEmitter<string>();
@@ -71,11 +65,11 @@ export class PwDropdownComponent {
     this.isOpen = !this.isOpen;
   }
 
-  isItem(value: any) {
+  isItem(value: any): boolean {
     return !!value.display && !!value.id;
   }
 
-  isDropdown(value:any) {
+  isDropdown(value:any): boolean {
     return !!value.options;
   }
 
