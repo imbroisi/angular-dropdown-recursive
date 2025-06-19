@@ -2,7 +2,7 @@
 
   <!-- label -->
   <span *ngIf="items.label" (click)="toggleDropdown()" class="dropdown-label">
-    <span [class.point-down]="isOpen">{{'>'}}</span><span [innerHTML]="items.label"></span>
+    <span [class.point-down]="isOpen">{{'>'}}</span><span [innerHTML]="getSafeHtml(items.label)"></span>
   </span>
 
   <!-- dropdown -->
@@ -11,7 +11,7 @@
 
       <!-- option.display -->
       <span *ngIf="isItem(option)" class="option-display" role="button" (click)="onClickItem.emit(asOption(option).id)">
-        <span class="pointer-hidden">{{'>'}}</span><span [innerHTML]="asOption(option).display"></span>
+        <span class="pointer-hidden">{{'>'}}</span><span [innerHTML]="getSafeHtml(asOption(option).display)"></span>
       </span>
 
       <!-- recursive -->

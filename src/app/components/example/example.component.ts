@@ -8,25 +8,25 @@ import { DropdownItem } from 'src/app/components/pw-dropdown-recursive/pw-dropdo
 })
 export class ExampleComponent {
   dropdownData: DropdownItem = {
-    label: "<b>Example Menu</b>",
+    label: '<span style="color: #007bff; font-weight: 600; font-size: 18px;">Example Menu</span>',
     options: [
       {
-        display: 'Item 1',
+        display: '<span style="color: #28a745; font-weight: 500;">Item 1</span>',
         id: 'a'
       },
       {
-        display: 'Item 2',
+        display: '<span style="color: #dc3545; font-weight: 500;">Item 2</span>',
         id: 'b'
       },
       {
-        display: '<i>Item 3</i>',
+        display: '<span style="color: #ffc107; font-weight: 500;"><i>Item 3</i></span>',
         id: 'c'
       },
       {
-        label: 'Submenu 1',
+        label: '<span style="color: #6f42c1; font-weight: 600;">Submenu 1</span>',
         options: [
           {
-            display: 'x',
+            display: '<span style="color: #17a2b8; font-weight: 500;">x</span>',
             id: 'XXXX'
           },
         ]
