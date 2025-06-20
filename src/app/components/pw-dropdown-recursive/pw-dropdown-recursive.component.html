@@ -1,22 +1,27 @@
-<div class="dropdown-recursive-container">
+<div class="pw-dropdown-recursive-container">
 
   <!-- label -->
-  <span *ngIf="items.label" (click)="toggleDropdown()" class="dropdown-label">
-    <span [class.point-down]="isOpen">{{'>'}}</span><span [innerHTML]="getSafeHtml(items.label)"></span>
+  <span *ngIf="items.label" (click)="toggleDropdown()" class="pw-dropdown-recursive-label">
+    <span [class.pw-dropdown-recursive-point-down]="isOpen">{{'>'}}</span><span [innerHTML]="items.label"></span>
   </span>
 
   <!-- dropdown -->
-  <div class="dropdown" [class.dropdown-open]="isOpen" [class.dropdown-close]="!isOpen">
-    <div class="dropdown-display" [class.no-label]="!items.label" *ngFor="let option of items.options">
+  <div class="pw-dropdown-recursive-content" [class.pw-dropdown-recursive-open]="isOpen"
+    [class.pw-dropdown-recursive-close]="!isOpen">
+    <div class="pw-dropdown-recursive-display" [class.pw-dropdown-recursive-no-label]="!items.label"
+      *ngFor="let option of items.options">
 
       <!-- option.display -->
-      <span *ngIf="isItem(option)" class="option-display" role="button" (click)="onClickItem.emit(asOption(option).id)">
-        <span class="pointer-hidden">{{'>'}}</span><span [innerHTML]="getSafeHtml(asOption(option).display)"></span>
+      <span *ngIf="isItem(option)" class="pw-dropdown-recursive-option-display" role="button"
+        (click)="onClickItem.emit(asOption(option).id)">
+        <span class="pw-dropdown-recursive-pointer-hidden">{{'>'}}</span><span
+          [innerHTML]="asOption(option).display"></span>
       </span>
 
       <!-- recursive -->
       <pw-dropdown-recursive *ngIf="isDropdown(option)" [items]="asDropdownItem(option)"
-        (onClickItem)="onClickItem.emit($event)" [class.no-label]="!items.label"></pw-dropdown-recursive>
+        (onClickItem)="onClickItem.emit($event)"
+        [class.pw-dropdown-recursive-no-label]="!items.label"></pw-dropdown-recursive>
 
     </div>
   </div>

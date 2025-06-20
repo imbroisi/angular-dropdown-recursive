@@ -8,3 +8,37 @@
     color: #333;
   }
 }
+
+// Usar :host ::ng-deep para aplicar estilos ao conteúdo innerHTML do dropdown
+:host ::ng-deep {
+  .menu-label {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .submenu-label {
+    color: #6f42c1;
+    font-weight: 600;
+  }
+
+  .item-green {
+    color: #28a745;
+    font-weight: 500;
+  }
+
+  .item-red {
+    color: #dc3545;
+    font-weight: 500;
+  }
+
+  .item-yellow {
+    color: #ffc107;
+    font-weight: 500;
+  }
+
+  .item-cyan {
+    color: #17a2b8;
+    font-weight: 500;
+  }
+}

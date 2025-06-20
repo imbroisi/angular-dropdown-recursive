@@ -1,22 +1,22 @@
-.dropdown-recursive-container {
+.pw-dropdown-recursive-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: fit-content;
 
-  .dropdown-label {
+  .pw-dropdown-recursive-label {
     cursor: pointer;
     span {
       display: inline-block;
       transition: transform 0.1s ease;
 
-      &.point-down {
+      &.pw-dropdown-recursive-point-down {
         transform: rotate(90deg);
       }
     }
   }
 
-  .dropdown {
+  .pw-dropdown-recursive-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -24,28 +24,28 @@
     max-height: 0;
     transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &.dropdown-open {
-      // large enough for content 
+    &.pw-dropdown-recursive-open {
+      // large enough for content
       max-height: 1000px;
       transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    &.dropdown-close {
+    &.pw-dropdown-recursive-close {
       max-height: 0;
       transition: max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .dropdown-display {
+    .pw-dropdown-recursive-display {
       padding: 4px 12px;
 
-      .option-display {
+      .pw-dropdown-recursive-option-display {
         cursor: pointer;
       }
 
-      .pointer-hidden {
+      .pw-dropdown-recursive-pointer-hidden {
         visibility: hidden;
       }
 
-      &.no-label {
+      &.pw-dropdown-recursive-no-label {
         padding-left: 0;
         padding-right: 0;
       }

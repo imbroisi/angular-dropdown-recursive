@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 /**
  * Example of the dropdown items
@@ -58,15 +57,10 @@ export class PwDropdownComponent {
   
   isOpen: boolean = false;
 
-  constructor(private sanitizer: DomSanitizer) {}
-
   ngOnInit() {
     this.isOpen = !this.items.label;
   }
 
-  getSafeHtml(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
